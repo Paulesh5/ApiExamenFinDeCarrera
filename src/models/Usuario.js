@@ -21,6 +21,10 @@ const usuarioSchema = new Schema({
     password:{
         type:String,
         require:true
+    },
+    token:{
+        type:String,
+        default:null
     }
 },{
     timestamps:true
