@@ -22,7 +22,12 @@ const detalleMateria = async(req,res)=>{
     res.status(200).json(materia)
 }
 const registrarMateria = async(req,res)=>{
+    const {nombre,codigo} = req.body
     if (Object.values(req.body).includes("")) return res.status(400).json({msg:"Lo sentimos, debes llenar todos los campos"})
+    const verificarNombreBDD = await Materia.findOne({nombre})
+    if(verificarNombreBDD) return res.status(400).json({msg:"Lo sentimos, la materia ya se encuentra registrada"})
+    const verificarCodigoBDD = await Materia.findOne({codigo})
+    if(verificarCodigoBDD) return res.status(400).json({msg:"Lo sentimos, el código ya se encuentra registrado"})
     const nuevoMateria = new Materia(req.body)
     await nuevoMateria.save()
     res.status(200).json({msg:"Registro exitoso de la materia"})

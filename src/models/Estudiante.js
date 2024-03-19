@@ -18,7 +18,7 @@ const estudianteSchema = new Schema({
     },
     fecha_nacimiento: {
         type: Date,
-        required: true
+        required: true,
     },
     ciudad:{
         type:String,
