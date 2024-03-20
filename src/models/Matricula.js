@@ -1,8 +1,9 @@
 import {Schema, model} from 'mongoose'
+import mongoose from 'mongoose'
 
 const matriculaSchema = new Schema({
     codigo:{
-        type:number,
+        type:Number,
         require:true,
         trim:true
     },

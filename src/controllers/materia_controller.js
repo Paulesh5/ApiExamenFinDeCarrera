@@ -12,7 +12,7 @@ const infoMateria =(req,res)=>{
     res.status(200).json(req.materiaBDD)
 }
 const listarMaterias = async (req,res)=>{
-    const materias = await Materia.find({estado:true}).where('materia').equals(req.materianoBDD).select("-createdAt -updatedAt -__v").populate('_id nombre codigo descripcion creditos')
+    const materias = await Materia.find({estado:true}).where('materia').equals(req.materiaBDD).select("-createdAt -updatedAt -__v").populate('_id nombre codigo descripcion creditos')
     res.status(200).json(materias)
 }
 const detalleMateria = async(req,res)=>{
