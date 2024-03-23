@@ -1,6 +1,5 @@
 import {Router} from 'express'
 import verificarAutenticacion from '../middlewares/autenticacion.js'
-import { validacionUsuario } from '../middlewares/validacionUsuario.js';
 
 const router = Router()
 import{
@@ -12,7 +11,7 @@ import{
 
 router.post("/login", login)
 
-router.post("/registro", validacionUsuario, registro)
+router.post("/registro", registro)
 
 router.get("/perfil", verificarAutenticacion, perfil)
 

@@ -24,12 +24,14 @@ const detalleMatricula = async(req,res)=>{
     res.status(200).json(matricula)
 }
 const registrarMatricula = async(req,res)=>{
-    const {id_estudiante,id_materia} = req.body
+    const {id_estudiante,id_materia,codigo} = req.body
     if (Object.values(req.body).includes("")) return res.status(400).json({msg:"Lo sentimos, debes llenar todos los campos"})
     const estudianteBDD = await Estudiante.findById(id_estudiante);
     if (!estudianteBDD) return res.status(400).json({ msg: "Lo sentimos, el estudiante no se encuentra registrado" });
     const materiaBDD = await Materia.findById(id_materia);
     if (!materiaBDD) return res.status(400).json({ msg: "Lo sentimos, la materia no se encuentra registrada" });
+    const verificarCodigoBDD = await Matricula.findOne({codigo})
+    if(verificarCodigoBDD) return res.status(400).json({msg:"Lo sentimos, el codigo ya se encuentra registrado"})
     const nuevoMatricula = new Matricula(req.body)
     await nuevoMatricula.save()
     res.status(200).json({msg:"Registro exitoso de la matricula"})

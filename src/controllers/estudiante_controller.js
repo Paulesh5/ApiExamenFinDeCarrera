@@ -32,10 +32,10 @@ const registrarEstudiante = async(req,res)=>{
     if(verificarCedulaBDD) return res.status(400).json({msg:"Lo sentimos, la cédula ya se encuentra registrada"})
     const verificarEmailBDD = await Estudiante.findOne({email})
     if(verificarEmailBDD) return res.status(400).json({msg:"Lo sentimos, el email ya se encuentra registrado"})
-    const fechaNacimiento = /^\d{4}\/\d{2}\/\d{2}$/;
+    /*const fechaNacimiento = /^\d{4}\/\d{2}\/\d{2}$/;
     if (!fechaNacimiento.test(fecha_nacimiento)) {
         return res.status(400).json({msg: "Lo sentimos, la fecha de nacimiento debe estar en formato AAAA/MM/DD"});
-    }
+    }*/
     const nuevoEstudiante = new Estudiante(req.body)
     await nuevoEstudiante.save()
     res.status(200).json({msg:"Registro exitoso del estudiante"})
