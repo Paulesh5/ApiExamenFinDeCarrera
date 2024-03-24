@@ -1,10 +1,10 @@
-import app from './server.js'
-import connection from './database.js';
-import http from 'http';
-import { Server } from 'socket.io';
+import app from './src/server.js'
+import connection from './src/database.js';
+/*import http from 'http';
+import { Server } from 'socket.io';*/
 
 connection()
-
+/*
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
@@ -17,8 +17,7 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('enviar-mensaje-fron-back',payload)
     })
 });
-
+*/
 app.listen(app.get('port'),()=>{
     console.log(`Server ok on http://localhost:${app.get('port')}`);
 })
-
