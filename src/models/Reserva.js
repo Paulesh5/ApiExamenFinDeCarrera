@@ -5,8 +5,7 @@ const ReservaSchema = new Schema({
     codigo:{
         type:Number,
         require:true,
-        trim:true,
-        unique:true
+        trim:true
     },
     descripcion:{
         type:String,
