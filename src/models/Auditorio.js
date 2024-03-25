@@ -1,22 +1,29 @@
 import {Schema, model} from 'mongoose'
 
-const materiaSchema = new Schema({
+const auditorioSchema = new Schema({
+    codigo:{
+        type:String,
+        require:true,
+        trim:true,
+        unique:true
+    },
     nombre:{
+        type:String,
+        require:true,
+        trim:true,
+        unique:true
+    },
+    ubicacion:{
         type:String,
         require:true,
         trim:true
     },
-    codigo:{
+    capacidad:{
         type:String,
         require:true,
         trim:true
     },
     descripcion:{
-        type:String,
-        require:true,
-        trim:true
-    },
-    creditos:{
         type:String,
         require:true,
         trim:true
@@ -26,4 +33,4 @@ const materiaSchema = new Schema({
     timestamps:true
 })
 
-export default model('Materia',materiaSchema)
+export default model('Auditorio',auditorioSchema)

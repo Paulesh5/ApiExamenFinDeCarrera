@@ -3,9 +3,9 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors';
 import routerUsuarios from './routers/usuario_routes.js';
-import routerMaterias from './routers/materia_routes.js';
-import routerEstudiantes from './routers/estudiante_routes.js';
-import routerMatriculas from './routers/matricula_routes.js';
+import routerAuditorios from './routers/auditorio_routes.js';
+import routerConferencistas from './routers/conferencista_routes.js';
+import routerReservas from './routers/reserva_routes.js';
 
 
 
@@ -32,9 +32,10 @@ app.use(express.json())
 
 // Rutas 
 app.use('/api',routerUsuarios)
-app.use('/api',routerMaterias)
-app.use('/api',routerEstudiantes)
-app.use('/api',routerMatriculas)
+app.use('/api',routerAuditorios)
+app.use('/api',routerConferencistas)
+app.use('/api',routerReservas)
+
 // Manejo de una ruta que no sea encontrada
 app.use((req,res)=>res.status(404).send("Endpoint no encontrado - 404"))
 

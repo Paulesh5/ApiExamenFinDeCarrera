@@ -1,7 +1,7 @@
 import {Schema, model} from 'mongoose'
 import mongoose from 'mongoose'
 
-const matriculaSchema = new Schema({
+const ReservaSchema = new Schema({
     codigo:{
         type:Number,
         require:true,
@@ -12,17 +12,17 @@ const matriculaSchema = new Schema({
         require:true,
         trim:true
     },
-    id_estudiante:{
+    id_conferencista:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'Estudiante'
+        ref:'Conferencista'
     },
-    id_materia:{
+    id_auditorio:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'Materia'
+        ref:'Auditorio'
     }
 
 },{
     timestamps:true
 })
 
-export default model('Matricula',matriculaSchema)
+export default model('Reserva',ReservaSchema)

@@ -30,7 +30,7 @@ const usuarioSchema = new Schema({
     timestamps:true
 })
 
-// Método para cifrar el password del veterinario
+// Método para cifrar el password
 usuarioSchema.methods.encrypPassword = async function(password){
     const salt = await bcrypt.genSalt(10)
     const passwordEncryp = await bcrypt.hash(password,salt)
